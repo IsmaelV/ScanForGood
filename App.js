@@ -1,16 +1,26 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Alert,
-  Button,
-} from "react-native";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import { StyleSheet, Text, SafeAreaView, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
+const Stack = createStackNavigator();
+
 export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={MyBarcodeScanner} />
+        <Stack.Screen name="BarShow" component={MyBarcodeShow} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const MyBarcodeScanner = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -21,11 +31,6 @@ export default function App() {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-  };
-
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
   }
@@ -35,9 +40,10 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Text>Below you can scan a barcode! Grogu</Text> */}
       <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        onBarCodeScanned={({ type, data }) =>
+          navigation.navigate("BarShow", { barcode: data })
+        }
         style={StyleSheet.absoluteFillObject}
       />
       {scanned && (
@@ -46,7 +52,16 @@ export default function App() {
       <StatusBar style="auto" />
     </SafeAreaView>
   );
-}
+};
+
+const MyBarcodeShow = ({ navigation, route }) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>The barcode you scanned is: {route.params.barcode} </Text>
+      <StatusBar style="auto" />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
