@@ -6,6 +6,7 @@ import {
   StatusBar,
   ActivityIndicator,
 } from "react-native";
+import myData from "../db/db_sfg.json"
 
 export default class MyBarcodeShow extends React.Component {
   constructor(props) {
@@ -33,6 +34,17 @@ export default class MyBarcodeShow extends React.Component {
       });
   }
 
+  showGrade(myBrand){
+    var givenGrade = ""
+    if(myData.hasOwnProperty(myBrand)){
+      givenGrade = myData[myBrand]["grade"];
+      return <Text>The grade we found for this is: {givenGrade}</Text>
+    }
+    else{
+      return <Text>We did not find any grade for this given product.</Text>
+    }
+  }
+
   render() {
     // Show loading animation while waiting for information
     if (this.state.isLoading) {
@@ -48,6 +60,7 @@ export default class MyBarcodeShow extends React.Component {
       <SafeAreaView style={styles.container}>
         <Text>The barcode you scanned is: {this.state.barcode} </Text>
         <Text>The brand is: {this.state.data.items[0].brand}</Text>
+        {this.showGrade(this.state.data.items[0].brand.toLowerCase())}
         <StatusBar style="auto" />
       </SafeAreaView>
     );
