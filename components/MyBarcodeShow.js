@@ -7,7 +7,8 @@ import {
   StatusBar,
   ActivityIndicator,
 } from "react-native";
-import Linking from 'expo-linking';
+// import Linking from 'expo-linking';
+import SvgUri from 'react-native-svg-uri';
 import * as WebBrowser from 'expo-web-browser';
 import myData from "../db/db_sfg.json"
 import APlusPhoto from "../assets/A+.png";
@@ -55,6 +56,10 @@ export default class MyBarcodeShow extends React.Component {
     WebBrowser.openBrowserAsync("https://betterworldshopper.org/the-research/");
   }
 
+  _handleAusPress = () => {
+    WebBrowser.openBrowserAsync("https://www.ethical.org.au/about/ratings/");
+  }
+
   showGrade(myBrand){
     var givenGrade = ""
     if(myData.hasOwnProperty(myBrand)){
@@ -95,11 +100,17 @@ export default class MyBarcodeShow extends React.Component {
     }
   }
 
-  showBrandLogo(myBrand){
-    console.log(myBrand)
-    var brandLogoUrl = "https://cdn.worldvectorlogo.com/logos/" + myBrand + ".svg";
-    FileSystem.getInfoAsync(brandLogoUrl).then(tmp => console.log(tmp.exists)).catch(err => console.log(err));
-  }
+  // showBrandLogo(myBrand){
+  //   console.log(myBrand)
+  //   var brandLogoUrl = "https://cdn.worldvectorlogo.com/logos/" + myBrand + ".svg";
+  //   try{
+  //     return <SvgUri source={{uri: brandLogoUrl}} style={styles.brandLogo}/>
+  //   }
+  //   catch(err){
+  //     console.log(err);
+  //     return <Text>No brand logo readily found</Text>
+  //   }
+  // }
 
   render() {
     // Show loading animation while waiting for information
@@ -122,6 +133,7 @@ export default class MyBarcodeShow extends React.Component {
             <Text>The brand is: {this.state.data.items[0].brand}</Text>
             {this.showGrade(this.state.data.items[0].brand.toLowerCase())}
             <Text style={styles.bhsLink} onPress={this._handlePress}>Click here for more information on the research and ranking</Text>
+            <Text style={styles.bhsLink} onPress={this._handleAusPress}>Click here to search very detailed praises and criticism for companies</Text>
             <StatusBar style="auto" />
           </SafeAreaView>
         );
@@ -157,6 +169,7 @@ const styles = StyleSheet.create({
   },
   bhsLink: {
     paddingTop: 100,
+    fontSize: 10,
     color: "blue",
     alignItems: "center",
     justifyContent: "center",
