@@ -26,7 +26,7 @@ function MyBarcodeScanner({ navigation }) {
     <SafeAreaView style={styles.container}>
       <BarCodeScanner
         onBarCodeScanned={({ type, data }) =>
-          navigation.navigate("BarShow", { barcode: data })
+          navigation.navigate("Barcode Results", { barcode: data })
         }
         style={StyleSheet.absoluteFillObject}
       />

@@ -12,8 +12,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={MyBarcodeScanner} />
-        <Stack.Screen name="BarShow" component={MyBarcodeShow} />
+        <Stack.Screen name="Scan For Good" component={MyBarcodeScanner} />
+        <Stack.Screen name="Barcode Results" component={MyBarcodeShow} />
       </Stack.Navigator>
     </NavigationContainer>
   );
