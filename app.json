@@ -10,6 +10,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "owner": "ismaelvm",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
