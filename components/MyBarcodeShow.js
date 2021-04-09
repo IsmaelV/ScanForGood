@@ -12,18 +12,18 @@ import {
 import SvgUri from 'react-native-svg-uri';
 import * as WebBrowser from 'expo-web-browser';
 import myData from "../db/db_sfg.json"
-import APlusPhoto from "../assets/A+.png";
+import APlusPhoto from "../assets/A_plus.png";
 import APhoto from "../assets/A.png";
-import AMinusPhoto from "../assets/A-.png";
-import BPlusPhoto from "../assets/B+.png";
+import AMinusPhoto from "../assets/A_minus.png";
+import BPlusPhoto from "../assets/B_plus.png";
 import BPhoto from "../assets/B.png";
-import BMinusPhoto from "../assets/B-.png";
-import CPlusPhoto from "../assets/C+.png";
+import BMinusPhoto from "../assets/B_minus.png";
+import CPlusPhoto from "../assets/C_plus.png";
 import CPhoto from "../assets/C.png";
-import CMinusPhoto from "../assets/C-.png";
-import DPlusPhoto from "../assets/D+.png";
+import CMinusPhoto from "../assets/C_minus.png";
+import DPlusPhoto from "../assets/D_plus.png";
 import DPhoto from "../assets/D.png";
-import DMinusPhoto from "../assets/D-.png";
+import DMinusPhoto from "../assets/D_minus.png";
 import FPhoto from "../assets/F.png";
 import { FileSystem } from "react-native-unimodules";
 
