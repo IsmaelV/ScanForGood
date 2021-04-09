@@ -66,31 +66,70 @@ export default class MyBarcodeShow extends React.Component {
       givenGrade = myData[myBrand]["grade"];
       switch(givenGrade) {
         case 'A+':
-          return <Image style={styles.imageGrade} source={APlusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={APlusPhoto}/>
+            <Text>These companies are social and environmental leaders in their category</Text>
+          )
         case 'A':
-          return <Image style={styles.imageGrade} source={APhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={APhoto}/>
+            <Text>These companies are social and environmental leaders in their category</Text>
+          )
         case 'A-':
-          return <Image style={styles.imageGrade} source={AMinusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={AMinusPhoto}/>
+            <Text>These companies are social and environmental leaders in their category</Text>
+          )
         case 'B+':
-          return <Image style={styles.imageGrade} source={BPlusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={BPlusPhoto}/>
+            <Text>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+          )
         case 'B':
-          return <Image style={styles.imageGrade} source={BPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={BPhoto}/>
+            <Text>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+          )
         case 'B-':
-          return <Image style={styles.imageGrade} source={BMinusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={BMinusPhoto}/>
+            <Text>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+          )
         case 'C+':
-          return <Image style={styles.imageGrade} source={CPlusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={CPlusPhoto}/>
+            <Text>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+          )
         case 'C':
-          return <Image style={styles.imageGrade} source={CPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={CPhoto}/>
+            <Text>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+          )
         case 'C-':
-          return <Image style={styles.imageGrade} source={CMinusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={CMinusPhoto}/>
+            <Text>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+          )
         case 'D+':
-          return <Image style={styles.imageGrade} source={DPlusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={DPlusPhoto}/>
+            <Text>These engage in practices that have significant negative impacts on people and the planet</Text>
+          )
         case 'D':
-          return <Image style={styles.imageGrade} source={DPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={DPhoto}/>
+            <Text>These engage in practices that have significant negative impacts on people and the planet</Text>
+          )
         case 'D-':
-          return <Image style={styles.imageGrade} source={DMinusPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={DMinusPhoto}/>
+            <Text>These engage in practices that have significant negative impacts on people and the planet</Text>
+          )
         case 'F':
-          return <Image style={styles.imageGrade} source={FPhoto}/>
+          return (
+            <Image style={styles.imageGrade} source={FPhoto}/>
+            <Text>These companies have the worst social and environmental records in the industry</Text>
+          )
         default:
           return <Text>Whoa we really didn't find anything</Text>
       }
