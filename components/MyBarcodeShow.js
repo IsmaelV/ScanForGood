@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   StatusBar,
   ActivityIndicator,
+  View,
 } from "react-native";
 // import Linking from 'expo-linking';
 import SvgUri from 'react-native-svg-uri';
@@ -67,68 +68,94 @@ export default class MyBarcodeShow extends React.Component {
       switch(givenGrade) {
         case 'A+':
           return (
-            <Image style={styles.imageGrade} source={APlusPhoto}/>
-            <Text>These companies are social and environmental leaders in their category</Text>
+            <View style={styles.container}>
+                <Image style={styles.imageGrade} source={APlusPhoto}/>
+                <Text style={styles.centerText}>These companies are social and environmental leaders in their category</Text>
+            </View>
           )
         case 'A':
           return (
-            <Image style={styles.imageGrade} source={APhoto}/>
-            <Text>These companies are social and environmental leaders in their category</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={APhoto}/>
+              <Text style={styles.centerText}>These companies are social and environmental leaders in their category</Text>
+            </View>
           )
         case 'A-':
           return (
-            <Image style={styles.imageGrade} source={AMinusPhoto}/>
-            <Text>These companies are social and environmental leaders in their category</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={AMinusPhoto}/>
+              <Text style={styles.centerText}>These companies are social and environmental leaders in their category</Text>
+            </View>
           )
         case 'B+':
           return (
-            <Image style={styles.imageGrade} source={BPlusPhoto}/>
-            <Text>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={BPlusPhoto}/>
+              <Text style={styles.centerText}>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+            </View>
           )
         case 'B':
           return (
-            <Image style={styles.imageGrade} source={BPhoto}/>
-            <Text>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={BPhoto}/>
+              <Text style={styles.centerText}>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+            </View>
           )
         case 'B-':
           return (
-            <Image style={styles.imageGrade} source={BMinusPhoto}/>
-            <Text>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={BMinusPhoto}/>
+              <Text style={styles.centerText}>These tend to be mainstream companies taking social/environmental responsibility seriously</Text>
+            </View>
           )
         case 'C+':
           return (
-            <Image style={styles.imageGrade} source={CPlusPhoto}/>
-            <Text>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={CPlusPhoto}/>
+              <Text style={styles.centerText}>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+            </View>
           )
         case 'C':
           return (
-            <Image style={styles.imageGrade} source={CPhoto}/>
-            <Text>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={CPhoto}/>
+              <Text style={styles.centerText}>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+            </View>
           )
         case 'C-':
           return (
-            <Image style={styles.imageGrade} source={CMinusPhoto}/>
-            <Text>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={CMinusPhoto}/>
+              <Text style={styles.centerText}>These companies have either mixed social and environmental records or insufficient data available to rank them</Text>
+            </View>
           )
         case 'D+':
           return (
-            <Image style={styles.imageGrade} source={DPlusPhoto}/>
-            <Text>These engage in practices that have significant negative impacts on people and the planet</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={DPlusPhoto}/>
+              <Text style={styles.centerText}>These engage in practices that have significant negative impacts on people and the planet</Text>
+            </View>
           )
         case 'D':
           return (
-            <Image style={styles.imageGrade} source={DPhoto}/>
-            <Text>These engage in practices that have significant negative impacts on people and the planet</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={DPhoto}/>
+              <Text style={styles.centerText}>These engage in practices that have significant negative impacts on people and the planet</Text>
+            </View>
           )
         case 'D-':
           return (
-            <Image style={styles.imageGrade} source={DMinusPhoto}/>
-            <Text>These engage in practices that have significant negative impacts on people and the planet</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={DMinusPhoto}/>
+              <Text style={styles.centerText}>These engage in practices that have significant negative impacts on people and the planet</Text>
+            </View>
           )
         case 'F':
           return (
-            <Image style={styles.imageGrade} source={FPhoto}/>
-            <Text>These companies have the worst social and environmental records in the industry</Text>
+            <View style={styles.container}>
+              <Image style={styles.imageGrade} source={FPhoto}/>
+              <Text style={styles.centerText}>These companies have the worst social and environmental records in the industry</Text>
+            </View>
           )
         default:
           return <Text>Whoa we really didn't find anything</Text>
@@ -164,7 +191,7 @@ export default class MyBarcodeShow extends React.Component {
     // After fetching information, return the information
     else{
       // console.log(this.state.data);
-      if(this.state.data.code === "OK"){
+      if(this.state.data.code === "OK" && this.state.data.items[0]){
         return (
           <SafeAreaView style={styles.container}>
             {/* {this.showBrandLogo(this.state.data.items[0].brand.toLowerCase())} */}
@@ -180,8 +207,8 @@ export default class MyBarcodeShow extends React.Component {
       else{
         return(
           <SafeAreaView style={styles.container}>
-            <Text>The barcode you submitted was not valid.</Text>
-            <Text>Please try another barcode!</Text>
+            <Text style={styles.centerText}>The barcode you submitted was either not valid or taking longer than expected to gete results.</Text>
+            <Text style={styles.centerText}>Please try again, or another barcode!</Text>
           </SafeAreaView>
         )
       }
@@ -191,10 +218,10 @@ export default class MyBarcodeShow extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center"
   },
   horizontal: {
     flexDirection: "row",
@@ -214,5 +241,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     textDecorationLine: "underline"
+  },
+  centerText: {
+    paddingTop: 30,
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
